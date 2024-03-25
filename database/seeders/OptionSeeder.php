@@ -15,6 +15,9 @@ class OptionSeeder extends Seeder
     {
         Option::create(['name' => 'Informatique Fondamentale','department_id'=>1]);
         Option::create(['name' => 'informatique industrielle','department_id'=>1]);
-        Option::create(['name' => 'TIC ','department_id'=>1]); 
+        Option::create(['name' => 'TIC ','department_id'=>1]);
+        Option::create(['name' => 'ANGLAIS ','department_id'=>9]);
+        Option::create(['name' => 'FRANçAIS ','department_id'=>9]);
+        Option::create(['name' => 'ELECTRONIQUE ','department_id'=>2]);
     }
 }

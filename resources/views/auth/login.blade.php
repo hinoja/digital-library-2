@@ -1,4 +1,4 @@
- 
+
 @extends('layouts.guest')
 @section('title',    __('Log in')  )
 @section('content')
@@ -34,7 +34,7 @@
             {{-- <div class="text-center forgotpass"><a href="forgot-password.html"> {{ __('Forgot your password?') }}</a>
             </div> --}}
 
-            {{-- <div class="text-center dont-have">Pas de compte ? <a href="{{ route('register') }}">Inscrivez-vous</a></div> --}}
+            <div class="text-center dont-have">Pas de compte ? <a href="{{ route('register') }}">Inscrivez-vous</a></div>
         </div>
     </div>
 @endsection

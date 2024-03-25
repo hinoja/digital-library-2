@@ -26,12 +26,12 @@ class Document extends Model
 
       return $priseService ? Carbon::parse($priseService)->translatedFormat($format) : null;
   }
-  
+
   //Scope
-  public function active(Builder $query): Builder
-  {
-      return $query->where('is_visible', 1);
-  }
+//   public function active(Builder $query): Builder
+//   {
+//       return $query->where('is_visible','=', 1);
+//   }
   public function categories()
   {
     return $this->belongsToMany(Category::class);

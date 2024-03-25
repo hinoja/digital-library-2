@@ -12,16 +12,21 @@
     <div class="card shadow-sm grow ctm-border-radius">
         <div class="card-body align-center">
             <h4 class="card-title float-left mb-0 mt-2">{{ $departments->count() }} @if ($departments->count() > 1)
-                    Utilisateurs
+                    Departements
                 @else
-                    Utilisateur
+                Departement
                 @endif
             </h4>
+
+            {{-- @include('include.admin.add-department') --}}
             <ul class="nav nav-tabs float-right border-0 tab-list-emp">
+                {{-- <li> <a href="#" data-toggle="modal" data-target="#addTagModal">Add Tags</a> </li> --}}
+
                 <li class="nav-item pl-3">
-                    <a href="{{ route('documents.create') }}"
+                    {{-- <a href="#" data-toggle="modal" data-target="#addTagModal">Add Tags</a> --}}
+                    <a href="{{ route('admin.departments.create') }}" data-toggle="modal" data-target="#addTagModal"
                         class="btn btn-theme button-1 text-white ctm-border-radius p-2 add-person ctm-btn-padding"><i
-                            class="fa fa-plus"></i>Ajouter Un Document</a>
+                            class="fa fa-plus"></i>  Ajouter Un Departement</a>
                 </li>
             </ul>
         </div>
@@ -51,8 +56,8 @@
                                     <td>{{ $department->description ? $department->description : '--' }} </td>
                                     <td>{{ $department->created_at }} </td>
                                     <td>
-                                        <span class="btn btn-danger"> <i class="fa fa-trash"
-                                                aria-hidden="true"></i></span>
+                                        <button wire:click="destroyDepartment({{ $department }})"
+                                            class="btn btn-danger  waves-effect"><i class="fa fa-trash "></i> </button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -63,7 +68,10 @@
                 </div>
             </div>
 
-
         </div>
     </div>
+
+
+
+
 </div>

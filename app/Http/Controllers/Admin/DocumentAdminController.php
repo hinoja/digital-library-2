@@ -18,6 +18,19 @@ use Illuminate\Support\Facades\Storage;
 
 class DocumentAdminController extends Controller
 {
+       /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyDepartment(Department $department)
+    {
+        dd($department->id);
+        $department->delete();
+
+        return redirect()->route('admin.departments.list')->with('success', "Le departement a bien été supprimé");
+    }
     /**
      * Display a listing of the resource.
      */
@@ -28,8 +41,8 @@ class DocumentAdminController extends Controller
                         ->with('categories')
                         ->with('level')
                         ->with('option')
-                        ->with('type') 
-                        ->latest()->get(); 
+                        ->with('type')
+                        ->latest()->get();
 
         return view('admin.documents.index', compact('documents'));
     }
@@ -45,7 +58,7 @@ class DocumentAdminController extends Controller
         return view('admin.documents.create', compact('options','departments', 'categories','types','levels'));
     }
 
-    
+
     /**
      * Display the specified resource.
      */
@@ -92,12 +105,12 @@ class DocumentAdminController extends Controller
             $document->categories()->attach($category);
         }
         // Ajout fichier
-       
+
         // $filename_chemin = 'document'.uniqid(). $document->id . '.' . $request->file()->getClientOriginalExtension();
         $filename = $slug . '.' . $request->file->extension();
         $request->file->storeAs('public/documents', $filename);
         $document->file = $filename;
-  
+
         // $filename =  Carbon::now()->timestamp . uniqid($slug) . '.' . $request->file->getClientOriginalExtension();
         // $document->id . '.' . $request->file->getClientOriginalExtension();
         // $document->file = $filename_chemin;
@@ -110,11 +123,18 @@ class DocumentAdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
-    }
+    public function createDepartment(Request $request){
+        dd("darta");
+        $data=$request->validate(['name'=>['required','string','min:2','unique:tags,name']]);
+        Department::create($data);
+        // session()->flash('message','Tag added successfuly');
+        $this->resetInput();
+        $this->dispatchBrowserEvent('close-modal');
+        return redirect()->with('success', "Le Departement a bien été enregistré ! ");
+        dd("test");
+        // Toastr::success('<i class="fa fa-check"></i> Tag added successfuly ', 'Success!!');
 
+    }
     /**
      * Update the specified resource in storage.
      */

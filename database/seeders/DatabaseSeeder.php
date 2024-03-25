@@ -23,9 +23,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-       
+
         $this->call([
-            DepartmentSeeder::class, 
+            DepartmentSeeder::class,
             CategorySeeder::class,
             OptionSeeder::class,
             TypeSeeder::class,
@@ -38,16 +38,16 @@ class DatabaseSeeder extends Seeder
             'role_id' => 1,
             'password' => Hash::make("password"),
         ]);
-        User::factory(10) 
+        User::factory(10)
         //   ->hasDocuments(3)
          ->create();
          Department::factory(2)
-                ->hasOptions(3)
+                // ->hasOptions(3)
                 ->create();
-       
-        Document::factory(10)
-        ->hasCategories(3)
+
+        Document::factory(30)
+        // ->hasCategories(3)
         ->create();
-        
+
     }
 }

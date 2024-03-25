@@ -21,7 +21,7 @@ class DocumentController extends Controller
         // $levels = Level::query()->ordreBy('name','desc')->get(); $types = Type::query()->ordreBy('name','desc')->get();
 
         $data = Document::query()->latest()
-            ->with(['categories'])
+            ->where('is_visible',true)
             ->paginate(12);
         return view('welcome', [
             'documents' => $data,

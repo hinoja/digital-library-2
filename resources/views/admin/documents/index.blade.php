@@ -76,12 +76,12 @@
 </div>
 <div class="card shadow-sm grow ctm-border-radius">
     <div class="card-body align-center">
-        <h4 class="card-title float-left mb-0 mt-2">{{ $documents->count() }} @if($documents->count() > 1) Utilisateurs @else Utilisateur @endif</h4>
+        <h4 class="card-title float-left mb-0 mt-2">{{ $documents->count() }} @if($documents->count() > 1) Documents @else Document @endif</h4>
         <ul class="nav nav-tabs float-right border-0 tab-list-emp">
             <li class="nav-item pl-3">
                 <a href="{{ route('documents.create') }}"
                     class="btn btn-theme button-1 text-white ctm-border-radius p-2 add-person ctm-btn-padding"><i
-                        class="fa fa-plus"></i>Ajouter Un Document</a>
+                        class="fa fa-plus"></i> Ajouter Un Document</a>
             </li>
         </ul>
     </div>
@@ -108,7 +108,7 @@
                         @foreach ($documents as $document)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                <td>{{ $document->title }}  
+                                <td>{{ $document->title }}
                                 </td>
                                 <td>{{ $document->published_at }} </td>
                                 <td>{{ $document->level->name }} </td>
@@ -127,7 +127,7 @@
                                                 @lang('No')</span>
                                         </div>
                                     @endif
-                                </td>                             
+                                </td>
                                 <td>
                                      <i class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> </i>
                                 </td>
@@ -137,10 +137,10 @@
                     </tbody>
                 </table>
 
-            </div> 
+            </div>
         </div>
 
     </div>
 </div>
-					
+
 @endsection

@@ -12,16 +12,16 @@
     <div class="card shadow-sm grow ctm-border-radius">
         <div class="card-body align-center">
             <h4 class="card-title float-left mb-0 mt-2">{{ $categories->count() }} @if ($categories->count() > 1)
-                    Utilisateurs
+                    Catégories
                 @else
-                    Utilisateur
+                    Categorie
                 @endif
             </h4>
             <ul class="nav nav-tabs float-right border-0 tab-list-emp">
                 <li class="nav-item pl-3">
                     <a href="{{ route('documents.create') }}"
                         class="btn btn-theme button-1 text-white ctm-border-radius p-2 add-person ctm-btn-padding"><i
-                            class="fa fa-plus"></i>Ajouter Un Document</a>
+                            class="fa fa-plus"></i>Ajouter Une Catégorie</a>
                 </li>
             </ul>
         </div>
@@ -51,8 +51,10 @@
                                     <td>{{ $categorie->description ? $categorie->description : '--' }} </td>
                                     <td>{{ $categorie->created_at }} </td>
                                     <td>
-                                        <span class="btn btn-danger"> <i class="fa fa-trash"
-                                                aria-hidden="true"></i></span>
+                                        <button wire:click="destroy({{ $categorie }})"
+                                            class="btn btn-danger  waves-effect"><i class="fa fa-trash "></i> </button>
+
+
                                     </td>
                                 </tr>
                             @endforeach

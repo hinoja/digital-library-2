@@ -63,4 +63,5 @@
 
 @section('content')
     @livewire('admin.manage-department')
+   
 @endsection

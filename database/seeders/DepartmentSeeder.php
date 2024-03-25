@@ -17,10 +17,10 @@ class DepartmentSeeder extends Seeder
         Department::create(['name' => 'Génie Electrique']);
         Department::create(['name' => 'Génie Forestier ']);
         Department::create(['name' => 'Mathematique']);
-        Department::create(['name' => 'Physique']);
-        Department::create(['name' => 'Anglais']);
+        Department::create(['name' => 'Agriculture']);
+        Department::create(['name' => 'Physique']); 
         Department::create(['name' => 'Psychologie']);
         Department::create(['name' => 'ITH']);
-        Department::create(['name' => 'Français']);
+        Department::create(['name' => 'Lettre Bilingue']);
     }
 }

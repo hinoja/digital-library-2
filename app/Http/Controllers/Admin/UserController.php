@@ -9,6 +9,7 @@ use App\Models\Career;
 use App\Models\Region;
 use App\Models\Status;
 use App\Models\Service;
+use App\Models\Document;
 use App\Models\Fonction;
 use App\Models\Department;
 use App\Models\SubService;
@@ -20,9 +21,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
+
+
 use App\Models\SituationMatrimoniale;
-
-
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 
@@ -41,7 +42,7 @@ class UserController extends Controller
             // ->with('departments')
             // ->with('options')
             // ->with('categories')
-            // ->with('keywords') 
+            // ->with('keywords')
             ->latest()->get();
         // dd( $users);
 
@@ -115,15 +116,7 @@ class UserController extends Controller
             // 'phoneNumber' => $request->phoneNumber,
         ]);
 
-        $career = Career::create([
-            'user_id' => $user->id,
-            'grade_id' => $request->grade_id,
-            'fonction_id' => $request->fonction_id,
-            'sub_service_id' => $request->sub_service_id,
-            'departmentAff_id' => $request->grade_id,
-            'regionAff_id' => $request->grade_id,
-            'mutationDate' => now(),
-        ]);
+        
 
         if (isset($request->password)) {
             $user->password = Hash::make($request->password);
@@ -180,28 +173,7 @@ class UserController extends Controller
         return back();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
-    {
 
-        // $user = User::where('slug', $slug)->firstOrFail();
-        $roles = Role::all();
-        $regions = Region::all();
-        $departments = Department::all();
-        $grades = Grade::all();
-        $situatMat = SituationMatrimoniale::all();
-        $services = Service::all();
-        $status = Status::all();
-        $fonctions = Fonction::all();
-        $subservices = SubService::all();
-
-        return view('admin.users.edit', compact('user', 'roles', 'regions', 'departments', 'grades', 'situatMat', 'services', 'status', 'fonctions', 'subservices'));
-    }
 
     /**
      * Update the specified resource in storage.
@@ -210,113 +182,8 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
-    {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'firstName' => ['required', 'string', 'max:255'],
-            'location' => ['required', 'string', 'max:255'],
-            'sexe_id' => ['required', 'max:255'],
-            'birthDate' => ['required', 'max:255'],
-            'sub_service_id' => ['required', 'max:255'],
-            'fonction_id' => ['required', 'max:255'],
-            'role_id' => ['required', 'max:255'],
-            'departmentOrigin_id' => ['required', 'max:255'],
-            'regionOrigin_id' => ['required', 'max:255'],
-            'status_id' => ['required', 'max:255'],
-            'matricule' => ['string', 'max:255'],
-            'priseService' => ['required', 'max:255'],
-            'departmentAff_id' => ['required', 'max:255'],
-            'situationMatrimoniale_id' => ['required', 'max:255'],
-            'regionAff_id' => ['required', 'max:255'],
-            'email' => ['required', 'email', "unique:users,email,$user->id", 'max:255'],
-            'phoneNumber' => ['required', "unique:users,phoneNumber,$user->id", 'string', 'max:255'],
-        ]);
-        isset($request->password) ? $request->validate(['password' => ['required', 'confirmed', 'min:6']]) : 0;
 
-        $user->update([
-            'name' => $request->name,
-            'sexe_id' => $request->sexe_id,
-            'firstName' => $request->firstName,
-            'location' => $request->location,
-            'grade_id' => $request->grade_id,
-            'birthDate' => $request->birthDate,
-            'sub_service_id' => $request->service_id,
-            'role_id' => $request->role_id,
-            'departmentOrigin_id' => $request->departmentOrigin_id,
-            'regionOrigin_id' => $request->regionOrigin_id,
-            'status_id' => $request->status_id,
-            'priseService' => $request->priseService,
-            'situationMatrimoniale_id' => $request->situationMatrimoniale_id,
-            'slug' => Str::slug($request->name . $request->firstName),
-            'email' => $request->email,
-            'phoneNumber' => $request->phoneNumber,
-        ]);
 
-        $career = Career::create([
-            'user_id' => $user->id,
-            'grade_id' => $request->grade_id,
-            'fonction_id' => $request->fonction_id,
-            'sub_service_id' => $request->sub_service_id,
-            'departmentAff_id' => $request->grade_id,
-            'regionAff_id' => $request->grade_id,
-            'mutationDate' => now(),
-        ]);
-
-        $user->is_active = $request->is_active;
-
-        if (isset($request->matricule)) {
-            $user->matricule = "ECI";
-        }
-
-        if (isset($request->password)) {
-            $user->password = Hash::make($request->password);
-        }
-
-        $user->save();
-
-        if (isset($request->cv)) {
-            $cv = $user->cv;
-            !is_null($user->cv) && Storage::disk('public')->delete($user->cv);
-
-            $filename_chemin_cv = 'usersExperience/' . $user->id . '.' . $request->cv->getClientOriginalExtension();
-
-            $filename_cv = $user->id . '.' . $request->cv->getClientOriginalExtension();
-
-            $user->cv = $filename_chemin_cv;
-            $user->save();
-
-            $request->file('cv')->storeAs('usersExperience', $filename_cv, 'public');
-        }
-        if (isset($request->avatar)) {
-            $avatar = $user->avatar;
-            !is_null($user->avatar) && Storage::disk('public')->delete($user->avatar);
-
-            $filename_chemin = 'usersAvatar/' . $user->id . '.' . $request->avatar->getClientOriginalExtension();
-
-            $filename = $user->id . '.' . $request->avatar->getClientOriginalExtension();
-
-            $user->avatar = $filename_chemin;
-            $user->save();
-
-            $request->file('avatar')->storeAs('usersAvatar', $filename, 'public');
-        }
-
-        return redirect()->route('users.index')->with('success', "L'utilisateur $user->name a bien été modifié");
-    }
-
-    // 
-    // 
-    // Télécharger e CV
-    public function download($id)
-    {
-        $user = User::findOrFail($id);
-        if ($user->cv) {
-            return Storage::disk('public')->download($user->cv);
-        } else {
-            return back();
-        }
-    }
 
     /**
      * Remove the specified resource from storage.

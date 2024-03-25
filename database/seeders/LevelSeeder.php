@@ -13,12 +13,12 @@ class LevelSeeder extends Seeder
      */
     public function run(): void
     {
-   
-        Level::create(['name' => 'NIVEAU1','code'=>'1']);
-        Level::create(['name' => 'NIVEAU2','code'=>'2']);
-        Level::create(['name' => 'NIVEAU3','code'=>'3']);
-        Level::create(['name' => 'NIVEAU4','code'=>'4']); 
-        Level::create(['name' => 'NIVEAU5','code'=>'5']);
-        Level::create(['name' => 'NIVEAUPlus','code'=>'>5']); 
+
+        Level::create(['name' => 'NIVEAU 1','code'=>'1']);
+        Level::create(['name' => 'NIVEAU 2','code'=>'2']);
+        Level::create(['name' => 'NIVEAU 3','code'=>'3']);
+        Level::create(['name' => 'NIVEAU 4','code'=>'4']);
+        Level::create(['name' => 'NIVEAU 5','code'=>'5']);
+        Level::create(['name' => 'NIVEAU > 5','code'=>'>5']);
     }
 }

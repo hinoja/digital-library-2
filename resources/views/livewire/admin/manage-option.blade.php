@@ -12,9 +12,7 @@
     <div class="card shadow-sm grow ctm-border-radius">
         <div class="card-body align-center">
             <h4 class="card-title float-left mb-0 mt-2">{{ $options->count() }} @if ($options->count() > 1)
-                    Utilisateurs
-                @else
-                    Utilisateur
+                    Filière(s)
                 @endif
             </h4>
             <ul class="nav nav-tabs float-right border-0 tab-list-emp">
@@ -37,8 +35,8 @@
                             <tr>
                                 <th class="text-center">#</th>
                                 <th>Nom</th>
-                                <th>Departement</th>
-                                {{-- <th>Description</th> --}}
+                                {{-- <th>Departement</th> --}}
+                                <th>Description</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -47,13 +45,16 @@
                                 <tr>
                                     <td class="text-center">{{ $loop->iteration }}</td>
                                     <td>{{ $option->name }}
-                                        <td>{{ $option->department->name }} </td>
+                                        {{-- <td>{{ $option->department->name }} </td> --}}
                                     </td>
-                                    {{-- <td>{{ $option->description ? $option->description : '--' }} </td> --}}
+                                    <td>{{ $option->description ? $option->description : '--' }} </td>
+
                                     <td>
-                                        <span class="btn btn-danger"> <i class="fa fa-trash"
-                                                aria-hidden="true"></i></span>
+                                        <button wire:click="destroy({{ $option }})"
+                                            class="btn btn-danger  waves-effect"><i class="fa fa-trash "></i> </button>
                                     </td>
+
+            
                                 </tr>
                             @endforeach
 

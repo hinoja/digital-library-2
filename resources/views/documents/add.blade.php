@@ -604,7 +604,7 @@
                             <div class="col-12">
                                 <div class="submit-section text-center btn-add">
                                     <button class="btn btn-theme text-white ctm-border-radius button-1">Add Team
-                                        Member</button>
+                                        Membre</button>
                                 </div>
                             </div>
                         </div>

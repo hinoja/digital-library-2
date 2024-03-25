@@ -2,6 +2,7 @@
 
 <?php
 
+use App\Models\Department;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DocumentController;
@@ -47,10 +48,13 @@ Route::middleware('auth')->group(function () {
     Route::resource('/admin/documents', DocumentAdminController::class);
     //download
     Route::get('/documents/{id}/file/download', [DocumentController::class, 'download'])->name('front.documents.download');
-   
-   
+    Route::post('admin/department/store', [DocumentAdminController::class, 'createDepartment'])->name('front.department.store');
+    Route::get('admin/department/{Department:id}/delete', [DocumentAdminController::class, 'destroyDepartment'])->name('front.department.destroy');
+
+
     Route::view('admin/categories/','admin.categories.index')->name('admin.categories.list');
     Route::view('admin/departments/','admin.departments.index')->name('admin.departments.list');
+     Route::view('admin/departments/create','admin/departments/create')->name('admin.departments.create');
     Route::view('admin/options/','admin.options.index')->name('admin.options.list');
 
     // Route::resource('users', UserController::class);

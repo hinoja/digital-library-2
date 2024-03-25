@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <title> @yield('title') | {{ config('app.name', 'MindCad') }}</title>
+    <title> @yield('title') | {{ config('app.name', 'Bibliothèque Numerique') }}</title>
 
     <!--[if lt IE 9]>
          <script src="assets/js/html5shiv.min.js"></script>

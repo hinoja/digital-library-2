@@ -11,18 +11,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Option extends Model
 {
     use HasFactory;
-    public $fillable=['name','department_id','description'];
+    public $fillable = ['name', 'department_id', 'description'];
 
     public function department()
     {
-      return $this->belongsTo(Department::class,'department_id');
+        return $this->belongsTo(Department::class, 'department_id');
     }
     public function user()
     {
-      return $this->belongTo(User::class);
+        return $this->belongTo(User::class);
     }
     public function documents()
     {
-      return $this->hasMany(Document::class);
+        return $this->hasMany(Document::class);
     }
 }
