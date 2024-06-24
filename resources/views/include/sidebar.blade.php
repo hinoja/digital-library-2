@@ -16,7 +16,7 @@
                             class="lnr lnr-users pr-0 pb-lg-2 font-23"></span><span class>Utilisateurs</span></a>
                 </div>
                 <div class="col-6 align-items-center shadow-none text-center">
-                    <a href="{{ route('documents.index') }}" 
+                    <a href="{{ route('documents.index') }}"
                         class="@if (Route::currentRouteName() == 'profile.edit') text-white @else text-dark @endif p-4  @if (Route::currentRouteName() == 'documents.index' ||
                                 Route::currentRouteName() == 'documents.create' ||
                                 Route::currentRouteName() == 'documents.edit') active text-white @else text-dark @endif second-slider-btn ctm-border-right ctm-border-top"><span
@@ -24,21 +24,21 @@
                 </div>
                 <div class="col-6 align-items-center shadow-none text-center">
                     <a href="{{ route('admin.departments.list') }}"
-                   class=" @if (Route::currentRouteName() == 'admin.departments.list') text-white @else text-dark @endif p-4  @if (Route::currentRouteName() == 'admin.departments.list') active text-white @else text-dark @endif"                                
+                   class=" @if (Route::currentRouteName() == 'admin.departments.list') text-white @else text-dark @endif p-4  @if (Route::currentRouteName() == 'admin.departments.list') active text-white @else text-dark @endif"
                         class="text-dark p-4 ctm-border-right ctm-border-left"><span
                             class="lnr lnr-apartment pr-0 pb-lg-2 font-23"></span><span class>Departement(s)</span></a>
                 </div>
                 <div class="col-6 align-items-center shadow-none text-center">
-                    <a href="{{ route('admin.options.list') }}" 
-                    class=" @if (Route::currentRouteName() == 'admin.options.list') text-white @else text-dark @endif p-4  @if (Route::currentRouteName() == 'admin.options.list') active text-white @else text-dark @endif" 
-                    
+                    <a href="{{ route('admin.options.list') }}"
+                    class=" @if (Route::currentRouteName() == 'admin.options.list') text-white @else text-dark @endif p-4  @if (Route::currentRouteName() == 'admin.options.list') active text-white @else text-dark @endif"
+
                     class="text-dark p-4 ctm-border-right"><span
                             class="lnr lnr-map pr-0 pb-lg-2 font-23"></span><span class>Filière(s)</span></a>
-                            
+
                 </div>
                 <div class="col-6 align-items-center shadow-none text-center">
-                    <a href="{{ route('admin.categories.list') }}" 
-                    class=" @if (Route::currentRouteName() == 'admin.categories.list') text-white @else text-dark @endif p-4  @if (Route::currentRouteName() == 'admin.categories.list') active text-white @else text-dark @endif" 
+                    <a href="{{ route('admin.categories.list') }}"
+                    class=" @if (Route::currentRouteName() == 'admin.categories.list') text-white @else text-dark @endif p-4  @if (Route::currentRouteName() == 'admin.categories.list') active text-white @else text-dark @endif"
                     class="text-dark p-4 ctm-border-right"><span
                             class="lnr lnr-map pr-0 pb-lg-2 font-23"></span><span class>Catégorie(s)</span></a>
                 </div>
@@ -47,12 +47,7 @@
                             class="lnr lnr-map pr-0 pb-lg-2 font-23"></span><span
                             class>Type de Mémoire</span></a>
                 </div> --}}
-                <div
-                    class="col-6 align-items-center @if (Route::currentRouteName() == 'profile.edit') active text-white @else text-dark @endif shadow-none text-center">
-                    <a href="{{ route('profile.edit') }}"
-                        class="@if (Route::currentRouteName() == 'profile.edit') text-white @else text-dark @endif p-4 last-slider-btn ctm-border-right"><span
-                            class="lnr lnr-user pr-0 pb-lg-2 font-23"></span><span class>Profile</span></a>
-                </div>
+                
                 {{-- <div class="col-6 align-items-center shadow-none text-center">
                     <a href="leave.html"
                         class="text-dark p-4 ctm-border-right ctm-border-left"><span

@@ -98,7 +98,7 @@
                     <i class="fa fa-flag" aria-hidden="true"></i>
                 </div>
                 <div class="card-right">
-                    <h4 class="card-title">Departements</h4>
+                    <h4 class="card-title">Départements</h4>
                     <p class="card-text text-dark">{{ $departments }}</p>
                 </div>
             </div>
@@ -113,7 +113,7 @@
                     <i class="fa fa-map" aria-hidden="true"></i>
                 </div>
                 <div class="card-right">
-                    <h4 class="card-title">Filière</h4>
+                    <h4 class="card-title">Filières</h4>
                     <p class="card-text text-dark">{{ $options }}</p>
                 </div>
             </div>

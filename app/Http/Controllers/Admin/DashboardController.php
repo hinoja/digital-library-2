@@ -26,7 +26,7 @@ class DashboardController extends Controller
             'departments' => Department::count(),
             'options' => Option::count(),
             'categories' => Category::count(),
-        
+
         ]);
     }
 
@@ -41,7 +41,7 @@ class DashboardController extends Controller
     {
         return view('admin.services.show', [
             'users' => User::where('sub_service_id', $id)->get(),
-            'subservice' => SubService::findOrFail($id),
+            // 'subservice' => SubService::findOrFail($id),
         ]);
     }
 }
