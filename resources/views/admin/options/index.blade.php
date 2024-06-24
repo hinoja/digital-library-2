@@ -46,9 +46,9 @@
                                                     href="{{ route('welcome') }}" class="text-dark">Accueil</a>
                                             </li>
                                             <li class="breadcrumb-item d-inline-block active">
-                                                Utilisateurs</li>
+                                                Filières</li>
                                         </ol>
-                                        <h4 class="text-dark">Liste des utilisateurs</h4>
+                                        <h4 class="text-dark">Liste des Filières</h4>
                                     </div>
                                 </div>
                             </div>
@@ -65,5 +65,5 @@
 
 @section('content')
 @livewire('admin.manage-option')
-					
+
 @endsection

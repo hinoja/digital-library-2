@@ -47,8 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/admin/documents', DocumentAdminController::class);
     //download
     Route::get('/documents/{id}/file/download', [DocumentController::class, 'download'])->name('front.documents.download');
-   
-   
+
     Route::view('admin/categories/','admin.categories.index')->name('admin.categories.list');
     Route::view('admin/departments/','admin.departments.index')->name('admin.departments.list');
     Route::view('admin/options/','admin.options.index')->name('admin.options.list');

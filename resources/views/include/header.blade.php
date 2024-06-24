@@ -50,10 +50,10 @@
                                     </a>
                                     <div class="dropdown-menu notification-dropdown-menu shadow-lg border-0 p-3 m-0 dropdown-menu-right">
                                         <form class="dropdown-item p-2" method="POST" action="{{ route('logout') }}">
-                                            @csrf 
+                                            @csrf
                                                 <li>
                                                     <a href="{{ route('dashboard') }}"
-                                                    class="dropdown-item"> @lang('Profile')
+                                                    class="dropdown-item"> @lang('dashboard')
                                                     </a>
                                                 </li>
                                                 <li>
@@ -68,7 +68,7 @@
                                                     class="dropdown-item"> @lang('Déconnextion')
                                                     </a>
                                                 </li>
-                                            </form>                                         
+                                            </form>
                                     </div>
 
                                 </div>
@@ -111,13 +111,13 @@
                                                     <span class="text-truncate">Déconnexion</span>
                                                 </span>
                                             </span> --}}
-                                         
+
                                     </div>
 
                                 </div>
 
                             @endif
-                                
+
 
                             </div>
                         </div>

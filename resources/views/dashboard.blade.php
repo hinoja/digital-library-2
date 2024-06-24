@@ -68,7 +68,7 @@
                 <div class="card-icon bg-primary">
                     <i class="fa fa-users" aria-hidden="true"></i>
                 </div>
-                <div class="card-right">  
+                <div class="card-right">
                     <h4 class="card-title">Utilisateurs</h4>
                     <p class="card-text">{{ $nbre_users }}</p>
                 </div>
@@ -76,7 +76,7 @@
         </div>
     </div>
     <div class="col-xl-6 col-lg-6 col-sm-6 col-12">
-        <a href="{{ route('list.services', 1) }}">
+        <a href="{{ route('documents.index') }}">
         <div class="card dash-widget ctm-border-radius shadow-sm grow">
             <div class="card-body">
                 <div class="card-icon bg-warning">
@@ -106,13 +106,13 @@
         </a>
     </div>
     <div class="col-xl-6 col-lg-6 col-sm-6 col-12">
-        {{-- <a href="{{ route('list.services', 2) }}"> --}}
+        <a href="{{ route('admin.departments.list') }}">
         <div class="card dash-widget ctm-border-radius shadow-sm grow">
             <div class="card-body">
                 <div class="card-icon bg-danger">
                     <i class="fa fa-map" aria-hidden="true"></i>
                 </div>
-                <div class="card-right"> 
+                <div class="card-right">
                     <h4 class="card-title">Filière</h4>
                     <p class="card-text text-dark">{{ $options }}</p>
                 </div>
@@ -121,7 +121,7 @@
         </a>
     </div>
     <div class="col-xl-6 col-lg-6 col-sm-6 col-12">
-        {{-- <a href="{{ route('list.services', 2) }}"> --}}
+        <a href="{{ route('admin.categories.list') }}">
         <div class="card dash-widget ctm-border-radius shadow-sm grow">
             <div class="card-body">
                 <div class="card-icon bg-danger">
@@ -135,6 +135,6 @@
         </div>
         </a>
     </div>
-    
+
 </div>
 @endsection

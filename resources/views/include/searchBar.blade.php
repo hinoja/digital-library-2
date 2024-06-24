@@ -16,7 +16,6 @@
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
-
                     <select name="level" class="form-control select" id="level_name">
                         <option disabled selected>@lang('Selectionnez le Niveau')</option>
                         @foreach ($levels as $level)
